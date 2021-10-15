@@ -20,7 +20,6 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 
 module.exports = function removeKFromList(l, k) {
-
 if(l == null){
   return l;
 }
