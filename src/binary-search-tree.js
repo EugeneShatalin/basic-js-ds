@@ -42,40 +42,60 @@ module.exports = class BinarySearchTree {
     }
   }
 
-  has(/* data */) {
-    throw new NotImplementedError("Not implemented");
-    // remove line with error and write your code here
+  has(data) {
+    let currentTreeRoot = this.treeRoot;
+    while (currentTreeRoot.data !== data) {
+      if (data < currentTreeRoot.data) {
+        currentTreeRoot = currentTreeRoot.left;
+      } else {
+        currentTreeRoot = currentTreeRoot.right;
+      }
+      if (currentTreeRoot === null) {
+        return false;
+      }
+    }
+    return true;
   }
 
-  find(/* data */) {
-    throw new NotImplementedError("Not implemented");
-    // remove line with error and write your code here
+  find(data) {
+    let currentTreeRoot = this.treeRoot;
+    while (currentTreeRoot.data !== data) {
+      if (data < currentTreeRoot.data) {
+        currentTreeRoot = currentTreeRoot.left;
+      } else {
+        currentTreeRoot = currentTreeRoot.right;
+      }
+      if (currentTreeRoot === null) {
+        return null;
+      }
+    }
+    return currentTreeRoot;
   }
 
-  remove(/* data */) {
+  remove(data) {
     throw new NotImplementedError("Not implemented");
     // remove line with error and write your code here
   }
 
   min() {
-    let current = this.treeRoot;
-    if (current.left === null || this.treeRoot === null) {
+    let currentTreeRoot = this.treeRoot;
+    if (currentTreeRoot.left === null || this.treeRoot === null) {
       return null;
     }
-    while (current.left !== null) {
-      current = current.left;
+    while (currentTreeRoot.left !== null) {
+      currentTreeRoot = currentTreeRoot.left;
     }
-    return current.data;
+    return currentTreeRoot.data;
   }
 
   max() {
-    let current = this.treeRoot;
-    if (current.right === null || this.treeRoot === null) {
+    let currentTreeRoot = this.treeRoot;
+    if (currentTreeRoot.right === null || this.treeRoot === null) {
       return null;
     }
-    while (current.right !== null) {
-      current = current.right;
+    while (currentTreeRoot.right !== null) {
+      currentTreeRoot = currentTreeRoot.right;
     }
-    return current.data;
+    return currentTreeRoot.data;
   }
 };
